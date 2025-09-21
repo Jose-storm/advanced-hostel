@@ -3,7 +3,9 @@
 # para acceder al sistema. Además, crear un menú para agregar nuevos animales al Albergue
 # "Patittas unidas con un menú de opciones" --> Los perritos dentro del albergue, añadir un
 # perrito, mostrar actuales y salida del sistema.
-from optionsF import mostrar_perritos
+from idlelib.sidebar import EndLineDelegator
+
+from optionsF import mostrar_perritos, address_dogs, show_dogs
 
 USER, PASSWORD = "alex", "alex123"
 count = 0
@@ -58,15 +60,22 @@ if __name__ == "__main__":
         [D]-Salir
         Selecciona tu opción --> """)
 
-        if option_system == "A":
+        if option_system.upper() == "A":
             print('------ Perritos dentro del albergue (today) ------')
-            show = mostrar_perritos(dogs_list)
-            print(show)
-        elif option_system == "B":
+            # show = mostrar_perritos(dogs_list)
+            mostrar_perritos(dogs_list)
+            """for i in show.values():
+                print(i)"""
+        elif option_system.upper() == "B":
             print('------ AÑADIR UN PERRITO NUEVO -----')
-        elif option_system == "C":
+            address_dogs(dogs_list)
+            # print(new_list)
+        elif option_system.upper() == "C":
             print('------ LISTA ACTUAL DE PERRITOS --------')
-        else:
+            show_dogs(dogs_list)
+        elif option_system.upper().split() == "D":
             print(f'Saliendo del sistema')
             exit_system = False
             break
+        else:
+            print("Error al ingresar letra")
