@@ -3,6 +3,7 @@
 # para acceder al sistema. Además, crear un menú para agregar nuevos animales al Albergue
 # "Patittas unidas con un menú de opciones" --> Los perritos dentro del albergue, añadir un
 # perrito, mostrar actuales y salida del sistema.
+from optionsF import mostrar_perritos
 
 USER, PASSWORD = "alex", "alex123"
 count = 0
@@ -59,6 +60,8 @@ if __name__ == "__main__":
 
         if option_system == "A":
             print('------ Perritos dentro del albergue (today) ------')
+            show = mostrar_perritos(dogs_list)
+            print(show)
         elif option_system == "B":
             print('------ AÑADIR UN PERRITO NUEVO -----')
         elif option_system == "C":
